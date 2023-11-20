@@ -14,3 +14,18 @@ def page1(request):
     code = request.GET.get('code', '')
     success = check_code(code)
     return render(request, 'form_page.html', {'page_number': 1, 'success': success})
+
+def page2(request):
+    code = request.GET.get('code', '')
+    success = check_code(code)
+    return render(request, 'form_page.html', {'page_number': 1, 'success': success})
+
+def page3(request):
+    code = request.GET.get('code', '')
+    success = check_code(code)
+    return render(request, 'form_page.html', {'page_number': 1, 'success': success})
+
+def page4(request):
+    code = request.GET.get('code', '')
+    success = check_code(code)
+    return render(request, 'form_page.html', {'page_number': 1, 'success': success})
