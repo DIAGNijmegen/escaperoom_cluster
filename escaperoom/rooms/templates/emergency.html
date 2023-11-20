@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
-{% block title %}Room 1{% endblock %}
+{% block title %}Emergency Dashboard{% endblock %}
 
 {% block content %}
-This page is under construction
+    <h1>Emergency Dashboard</h1>
+        
+    <p>However, when all hope is lost, you can do a total reset of the web application by clicking the button below. This will reset all the rooms and the admin console. This will not reset the docker registry.</p>
 
+    <form action="{% url 'restart' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Reset Application</button>
+    </form>
 {% endblock %}

@@ -5,6 +5,11 @@ from rooms.code_checks import check_access_code, check_puzzle_solution
 def main_page(request):
     return render(request, 'main.html')
 
+
+def clear_session(request):
+    request.session.flush()  # This will delete the current session data and cookie.
+    return HttpResponse("Session cleared!")
+
 def room(request, room_number):
     access_session_key = f'access_granted_room_{room_number}'
     puzzle_session_key = f'puzzle_solved_room_{room_number}'
@@ -38,3 +43,6 @@ def room(request, room_number):
     }
     return render(request, f'room{room_number}.html', context)
 
+# load the emergency page
+def emergency(request):
+    return render(request, 'emergency.html')
