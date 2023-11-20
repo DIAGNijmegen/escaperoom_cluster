@@ -23,12 +23,14 @@
         {% block after_access %}
             <!-- Default or generic content after access, if any -->
         {% endblock %}
-        <form method="post" class="form-group">
-            {% csrf_token %}
-            <label for="{{ puzzle_form.puzzle_answer.id_for_label }}">{{ puzzle_form.puzzle_answer.label }}</label>
-            <input type="text" class="form-control" name="{{ puzzle_form.puzzle_answer.html_name }}" id="{{ puzzle_form.puzzle_answer.id_for_label }}">
-            <button type="submit" name="puzzle" class="btn btn-primary mt-2">Solve Puzzle</button>
-        </form>
+        {% if not success %}
+            <form method="post" class="form-group" action="">
+                {% csrf_token %}
+                <label for="{{ puzzle_form.puzzle_answer.id_for_label }}">{{ puzzle_form.puzzle_answer.label }}</label>
+                <input type="text" class="form-control" name="{{ puzzle_form.puzzle_answer.html_name }}" id="{{ puzzle_form.puzzle_answer.id_for_label }}">
+                <button type="submit" name="puzzle" class="btn btn-primary mt-2">Solve Puzzle</button>
+            </form>
+        {% endif %}
         {% if success %}
             <div class="mt-4 alert alert-success">
                 <p>Congratulations! You have unlocked a new part of the page.</p>

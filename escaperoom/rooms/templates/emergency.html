@@ -4,8 +4,9 @@
 
 {% block content %}
     <h1>Emergency Dashboard</h1>
-        
-    <p>However, when all hope is lost, you can do a total reset of the web application by clicking the button below. This will reset all the rooms and the admin console. This will not reset the docker registry.</p>
+    Unfortunately all emergency communications are down :(.
+
+    <p>You can do a total reset of the web application by clicking the button below. This will reset all the rooms and puzzles to their original state.</p>
 
     <form action="{% url 'restart' %}" method="post">
         {% csrf_token %}
