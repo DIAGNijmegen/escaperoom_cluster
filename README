@@ -1,0 +1,3 @@
+Put the files they will need in the assignment folder
+
+The django server will run a webpage where they can fill in the codes and the webserver will handle the file downloads for each assignment
