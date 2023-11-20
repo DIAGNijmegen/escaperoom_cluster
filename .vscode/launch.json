@@ -8,7 +8,7 @@
             "name": "Python: Django",
             "type": "python",
             "request": "launch",
-            "program": "/app/escaperoom/manage.py",
+            "program": "${workspaceFolder}/escaperoom/manage.py",
             "args": [
                 "runserver"
             ],

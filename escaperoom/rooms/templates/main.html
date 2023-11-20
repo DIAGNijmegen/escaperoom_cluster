@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Main Page</title>
-</head>
-<body>
-    <h1>Welcome to the Main Page</h1>
-    <a href="/page1/">Page 1</a>
-    <a href="/page2/">Page 2</a>
-    <a href="/page3/">Page 3</a>
-    <a href="/page4/">Page 4</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Main Page{% endblock %}
+
+{% block content %}
+    <h1>SOL2 terminal</h1>
+    Welcome to the SOL2 Terminal. Here you can access the SOL2 cluster and manage the nodes.
+
+    You are able to build and push dockerfiles to our registry doduo1.ummcn.nl
+
+    
+
+    {% endblock %}

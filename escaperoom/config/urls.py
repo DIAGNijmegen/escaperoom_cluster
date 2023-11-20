@@ -19,5 +19,5 @@ from rooms import views
 
 urlpatterns = [
     path('', views.main_page, name='main'),
-    path('rooms/', include('rooms.urls')),  # include the URLs from myapp
+    path('', include('rooms.urls')),  # include the URLs from rooms
 ]
