@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rooms.forms import AccessForm, PuzzleForm
+from django.http import HttpResponse, Http404
+from django.conf import settings
+import os
 from rooms.code_checks import check_access_code, check_puzzle_solution
 def main_page(request):
     return render(request, 'main.html')
@@ -42,6 +45,27 @@ def room(request, room_number):
         'room_number': room_number
     }
     return render(request, f'room{room_number}.html', context)
+
+
+def download_file(request, room_number, file_name):
+    access_session_key = f'access_granted_room_{room_number}'
+    puzzle_session_key = f'puzzle_solved_room_{room_number}'
+
+    # Check if the user has access
+    if not request.session.get(access_session_key) and not request.session.get(puzzle_session_key):
+        raise Http404("You don't have permission to access this file.")
+
+    file_path = os.path.join(settings.BASE_DIR, 'files', file_name)
+
+    # Check if file exists
+    if not os.path.exists(file_path):
+        raise Http404("File does not exist.")
+
+    with open(file_path, 'rb') as file:
+        response = HttpResponse(file.read(), content_type="application/octet-stream")
+        response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_path)
+        return response
+
 
 # load the emergency page
 def emergency(request):
