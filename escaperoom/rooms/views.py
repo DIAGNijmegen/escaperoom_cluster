@@ -13,19 +13,23 @@ def check_code(code):
 def page1(request):
     code = request.GET.get('code', '')
     success = check_code(code)
-    return render(request, 'form_page.html', {'page_number': 1, 'success': success})
+    context = {'success': success}
+    return render(request, 'assignment1.html', context)
 
 def page2(request):
     code = request.GET.get('code', '')
     success = check_code(code)
-    return render(request, 'form_page.html', {'page_number': 1, 'success': success})
+    context = {'success': success}
+    return render(request, 'assignment1.html', context)
 
 def page3(request):
     code = request.GET.get('code', '')
     success = check_code(code)
-    return render(request, 'form_page.html', {'page_number': 1, 'success': success})
+    context = {'success': success}
+    return render(request, 'assignment1.html', context)
 
 def page4(request):
     code = request.GET.get('code', '')
     success = check_code(code)
-    return render(request, 'form_page.html', {'page_number': 1, 'success': success})
+    context = {'success': success}
+    return render(request, 'assignment1.html', context)
