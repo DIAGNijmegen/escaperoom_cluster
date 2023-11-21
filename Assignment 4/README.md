@@ -24,7 +24,7 @@ COPY run.sh .
 ENTRYPOINT ["/bin/bash", "run.sh"]
 ```
 
-:warning: just like the `data.ipynb` file at assignment 2, the `inference.py` expects the `wholeslidedata` package to be installed. It's not in the `requirements.txt` file. They either need to update the requirements, or add a line in the Dockerfile to install `wholeslidedata`. If they don't do it, their inference docker will not run successfully!
+:warning: Just like the `data.ipynb` file at assignment 2, the `inference.py` expects the `wholeslidedata` package to be installed. It's not in the `requirements.txt` file. They either need to update the requirements, or add a line in the Dockerfile to install `wholeslidedata`. If they don't do it, their inference docker will not run successfully!
 
 This script will run inference with the model weights they saved at assignment 3. They need to update the script `inference.sh` to add:
 * the docker image they pushed at assignment 1
