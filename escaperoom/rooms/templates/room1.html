@@ -1,12 +1,52 @@
 {% extends 'room_base.html' %}
 
 {% block after_access %}
-    <p>Room 1 specific content after access.</p>
-    <!-- Add more Room 1 specific content here -->
+
+
+<h1>Assignment 1</h1>
+
+<div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Okay you made it to the first assignment. Good job! </h4>
+    Your goal is to create a Dockerfile, build a Docker image and push it to the registry.
+</div>
+
+<ul>
+    <li>We provide you with a template Dockerfile and a list of Python packages that need to get installed. Make sure you update the Dockerfile and that you install the packages listed in the <code>requirements.txt</code> file in your Docker image.</li>
+    <li>Build the docker image and push it to the registry.</li>
+    <li><a href="{% url 'download_file' room_number=room_number file_name='Dockerfile' %}">Download Dockerfile</a></li>
+    <li><a href="{% url 'download_file' room_number=room_number file_name='requirements.txt' %}">Download requirements.txt</a></li>
+</ul>
+
+
+
+
+ <!-- Very Hidden Tips Toggle Button -->
+ <button id="tips-toggle" style="opacity: 1; position: absolute; top: 10%; right: 10%; border: none; background: none;">:'(</button>
+
+ <!-- Hidden Tips Section -->
+ <div id="tips-section" style="display:none;">
+     <h4>Tips</h4>
+Trouble building a Docker image? Check out the <a href="https://docs.docker.com/engine/reference/commandline/build/">Docker build documentation</a>.<br>
+Trouble pushing a Docker image? Check out the <a href="https://docs.docker.com/engine/reference/commandline/push/">Docker push documentation</a>.<br>
+Trouble installing Python packages? Check out the <a href="https://pip.pypa.io/en/stable/cli/pip_install/">pip install documentation</a>.<br>
+Is it not working on your local machine? Try to build and push the Docker image on the SOL2 cluster using dlc-duglet<br>
+
+</div>
+
+
+
+<h2>To acquire your puzzle piece</h2>
+<p>The assignment is passed once you push the updated Dockerfile to your team Github repository. Create an issue, mention Clement (<code>clemsgrs</code>) and Daan (<code>daangeijs</code>), and the <a href="https://stackoverflow.com/questions/8910271/how-can-i-reference-a-commit-in-an-issue-comment-on-github">SHA</a> of your commit in the issue. They check your repository and give you the puzzle piece by putting it in your Issue.</p>
 {% endblock %}
 
 {% block after_puzzle %}
-    <p>Room 1 specific content after solving the puzzle.</p>
 
-     <a href="{% url 'download_file' room_number=room_number file_name='test.txt' %}">Download File</a>
+    <div class="alert alert-info" role="alert">
+    KEY: {{ succes_key }}
+    </div>
+
+     
 {% endblock %}
+
+
+

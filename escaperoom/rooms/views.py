@@ -4,7 +4,7 @@ from rooms.forms import AccessForm, PuzzleForm
 from django.http import HttpResponse, Http404
 from django.conf import settings
 import os
-from rooms.code_checks import check_access_code, check_puzzle_solution
+from rooms.code_checks import check_access_code, check_puzzle_solution, fetch_acces_code
 def main_page(request):
     return render(request, 'main.html')
 
@@ -19,9 +19,11 @@ def room(request, room_number):
     
     access_granted = request.session.get(access_session_key, False)
     puzzle_solved = request.session.get(puzzle_session_key, False)
+    puzzle_answer = None
 
     access_form = AccessForm(prefix='access')
     puzzle_form = PuzzleForm(prefix='puzzle')
+    
 
     if request.method == 'POST':
         if 'access' in request.POST:
@@ -35,6 +37,7 @@ def room(request, room_number):
             if puzzle_form.is_valid():
                 if check_puzzle_solution(f'room{room_number}', puzzle_form.cleaned_data['puzzle_answer']):
                     puzzle_solved = True
+                    puzzle_answer = fetch_acces_code(f'room{room_number+1}')
                     request.session[puzzle_session_key] = True  # Set session variable for puzzle
 
     context = {
@@ -42,6 +45,7 @@ def room(request, room_number):
         'puzzle_form': puzzle_form,
         'allowed': access_granted,
         'success': puzzle_solved,
+        'succes_key': puzzle_answer,
         'room_number': room_number
     }
     return render(request, f'room{room_number}.html', context)

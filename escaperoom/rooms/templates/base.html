@@ -13,17 +13,27 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'main' %}">Home</a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'room' room_number=1 %}">Docker Registry</a>
+                    <a class="nav-link" href="{% url 'room' room_number=2 %}">Starting interactive sessions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'room' room_number=2 %}">Available Nodes</a>
+                    <a class="nav-link" href="{% url 'room' room_number=3 %}">Interactive development</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'room' room_number=3 %}">Admin Console</a>
+                    <a class="nav-link" href="{% url 'room' room_number=5 %}">Admin Console</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'room' room_number=4 %}">Job monitor</a>
+                    <a class="nav-link" href="{% url 'room' room_number=4 %}">Start inference jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="http://pokedex:11080/">Runnings Jobs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://doduo1.umcn.nl/registry/">Docker registry</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'room' room_number=1 %}">Building and pushing</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'emergency' %}">Emergency</a>
@@ -42,5 +52,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.7.0/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var tipsToggle = document.getElementById('tips-toggle');
+            if (tipsToggle) {
+                tipsToggle.addEventListener('click', function() {
+                    var tipsSection = document.getElementById('tips-section');
+                    if (tipsSection.style.display === 'none') {
+                        tipsSection.style.display = 'block';
+                    } else {
+                        tipsSection.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

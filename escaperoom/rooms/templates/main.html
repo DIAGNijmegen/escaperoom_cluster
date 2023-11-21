@@ -3,9 +3,55 @@
 {% block title %}Main Page{% endblock %}
 
 {% block content %}
-    <h1>SOL2 terminal</h1>
-    Welcome to the SOL2 Terminal. Here you can access the SOL2 cluster and manage the nodes.
+    <h1>SOL2 Terminal</h1>
+    <p>Welcome to the SOL2 Terminal. Here you can access the SOL2 cluster and manage the nodes.</p>
 
-    You are able to build and push dockerfiles to our registry doduo1.ummcn.nl
-    
-    {% endblock %}
+    <div class="alert alert-info" role="alert">
+        <h4 class="alert-heading">Prepare for Your Escape:</h4>
+        Before you embark on this quest, ensure that you are equipped with the following:
+        <ul>
+            <li>Fully charged laptop with at least 2 hours of battery life.</li>
+            <li>Spare power extension cable, if available.</li>
+            <li>Github and SOL2 accounts.</li>
+        </ul>
+    </div>
+
+    <h4>Escape notes:</h4>
+    <p>
+        Today's mission is not just about escape, but about learning and collaboration in a safe environment. Your goal is to (virtually) escape from a cold, locked SOL server room by solving a series of tasks set by the SOL administrators. For this you will need to build a Docker image and push it to the registry. Run an interactive job on the cluster and execute a Python script using a normal SBATCH command. Good luck!
+        <br><br>
+        Each team member is expected to work on the tasks independently on their own laptop. Progress to the next task is only possible when all team members have completed the current task. In each team, there's an expert on SOL2, but remember: <em>the expert should guide and assist rather than solve the tasks themselves.</em> Experts are there to ensure everyone moves at their own pace and learns effectively. Cooperation between different teams is encouraged.
+        <br><br>
+        Prizes await teams that not only complete the tasks but also excel in creating a positive and effective learning atmosphere. 
+        <br><br>
+        Find your name and team number in the 'ImageTeams.xlsx' on Teams or contact the organizer if you're not yet assigned.
+        <br><br>
+        Let's learn, collaborate, and escape together!
+        <br><br>
+    </p>
+
+    <div class="alert alert-warning" role="alert">
+        <h2>Special Message for Team Experts</h2>
+        <p>Team Experts are required to take the following steps:</p>
+        <ol>
+            <li>Create a private GitHub repository within DIAGNijmegen.</li>
+            <li>Invite all members of your team to the repository and grant them admin rights.</li>
+            <li>Invite Daan and Clement to the repository and grant them admin rights as well.</li>
+            <li>After completing these steps, create an Issue in the GitHub repository and mention Daan and Clement in it.</li>
+            <li>You will receive the key in the Issue.</li>
+        </ol>
+    </div>
+
+    <h4>Useful Resources:</h4>
+    <p>Arm yourself with knowledge from these sources:</p>
+    <ul>
+        <li><a href="https://diagnijmegen.github.io/deepops-sol-config/">How to setup SOL2 and run jobs</a></li>
+        <li><a href="https://github.com/daangeijs/deepops-slurmjob">Slurmjob package</a></li>
+        <li><a href="https://www.youtube.com/watch?v=gAGEar5HQoU">Introduction to Docker (Video)</a></li>
+        <li><a href="https://learn.microsoft.com/en-us/windows/wsl/install#install-wsl-command">WSL (Ubuntu) setup in Windows 11</a></li>
+        <li><a href="https://www.makeuseof.com/pros-cons-windows-subsystem-for-linux/">WSL pros and cons</a></li>
+        <li><a href="https://slurm.schedmd.com/sbatch.html">Sbatch commands</a></li>
+    </ul>
+
+
+{% endblock %}
