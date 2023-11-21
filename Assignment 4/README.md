@@ -2,7 +2,31 @@
 
 Participants should start by killing their previous job. They will then get a `inference.py` script, a `run.sh` script and a template bash script that they will use to kick off a non-interactive job that runs inference (`inference.sh`).
 
-They have to update their Dockerfile to add an entrypoint that excecutes the `run.sh` file. This script will run inference with the model weights they saved at assignment 3. They need to update the script `inference.sh` to add:
+They have to update their Dockerfile to add an entrypoint that excecutes the `run.sh` file:
+
+```Dockerfile
+FROM doduo1.umcn.nl/uokbaseimage/diag:tf2.8-pt1.10-v2
+
+#### Set /home/user as working directory
+WORKDIR /home/user
+
+#### COPY requirements
+COPY requirements.txt .
+
+#### Install requirements
+RUN pip3 install -r requirements.txt
+
+#### Copy inference script
+COPY inference.py .
+
+#### Configure Docker entrypoint
+COPY run.sh .
+ENTRYPOINT ["/bin/bash", "run.sh"]
+```
+
+
+
+This script will run inference with the model weights they saved at assignment 3. They need to update the script `inference.sh` to add:
 * the docker image they pushed at assignment 1
 * mount the directory where the training data is stored : `/data/pathology/users/clement/diag_day/data`
 
