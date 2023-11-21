@@ -1,8 +1,8 @@
 # Assignment 2
 
-We provide each participant with a template bash script that they will use to submit a job on the cluster. They will have to update the script to add:
+Each participant will have to kick off a job with:
 * the docker image they pushed at assignment 1
-* mount the directory where the training data is stored : `/data/pathology/users/clement/diag_day/data`.
+* mount the directory where the training data is stored : `/data/pathology/users/clement/diag_day/data`
 
 They should start the job with either:
 * a combination of `screen` and `srun`

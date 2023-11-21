@@ -6,7 +6,7 @@ They have to update their Dockerfile to add an entrypoint that excecutes the `ru
 
 This script will run the inference script with the model weights they saved at assignment 3 saved. They need to update the update the script to add:
 * the docker image they pushed at assignment 1
-* mount the directory where the training data is stored : `/data/pathology/users/clement/diag_day/data`.
+* mount the directory where the training data is stored : `/data/pathology/users/clement/diag_day/data`
 
 The inference script expects the path to the model weights, and produces a `submission.csv`. By default it will be saved in the container working directory. They need to copy it to one of the shares (Blissey/Chansey) as they will need to push it to their github repository.
 
