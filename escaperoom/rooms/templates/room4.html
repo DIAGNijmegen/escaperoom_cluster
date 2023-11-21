@@ -1,11 +1,46 @@
 {% extends 'room_base.html' %}
 
 {% block after_access %}
-    <p>Room 4 specific content after access.</p>
-    <!-- Add more Room 1 specific content here -->
+<h1>Assignment 4</h1>
+
+<div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Now, onto the final stretch!</h4>
+    This task involves setting up a non-interactive job for running inference using the Docker environment you've been working with.
+</div>
+
+<ul>
+    <li>First, kill your previous job from Assignment 3.</li>
+    <li>Update your Dockerfile to add an entrypoint for executing the <code>entrypoint.sh</code> file:</li>
+    <li>Remember to install the <code>wholeslidedata</code> package, as it's required for <code>inference.py</code>.</li>
+    <li>Modify the <code>inference.sh</code> script to specify:
+        <ul>
+            <li>The docker image from Assignment 1.</li>
+            <li>Mount the directory with training data: <code>/data/pathology/users/clement/diag_day/data</code>.</li>
+            <li>The path to the model weights saved in Assignment 3.</li>
+        </ul>
+    </li>
+    <li><code>inference.py</code> will produce a <code>submission.csv</code> file. Be sure to output this file to a share (Blissey/Chansey) for submission.</li>
+    <li><a href="{% url 'download_file' room_number=room_number file_name='inference.py' %}">Download inference.py</a></li>
+    <li><a href="{% url 'download_file' room_number=room_number file_name='inference.sh' %}">Download inference.sh</a></li>
+    <li><a href="{% url 'download_file' room_number=room_number file_name='entrypoint.sh' %}">Download entrypoint.sh</a></li>
+</ul>
+
+<!-- Very Hidden Tips Toggle Button -->
+<button id="tips-toggle" style="opacity: 0.50; position: absolute; top: 5%; right: 0%; border: none; background: none;">:'(</button>
+
+<!-- Hidden Tips Section -->
+<div id="tips-section" style="display:none;">
+    <h4>Tips</h4>
+    Facing difficulties? Consult the <a href="https://diagnijmegen.github.io/deepops-sol-config/running-jobs/">documentation page</a>.<br>
+    <!-- Add more tips or links to documentation as needed -->
+</div>
+
+<h4>To acquire your puzzle piece</h4>
+<p>The assignment is passed once you update the Dockerfile and push both the Dockerfile and <code>submission.csv</code> to your team's GitHub repository. We will check your submission and provide your AUC on the test set to complete the assignment.</p>
 {% endblock %}
 
 {% block after_puzzle %}
-    <p>Room 4 specific content after solving the puzzle.</p>
-    <!-- Add more Room 1 specific content here -->
+    <h4 class="alert-heading">KEY: {{ success_key }}</h4>
+    <p>Well done! You've completed the final assignment. Your inference results are now in and your journey with SOL2 has reached a new height!</p>
+    <p>Now, it's <a href="https://aesculaaf.nl/">time to celebrate!</a> You've earned it!</p>
 {% endblock %}
