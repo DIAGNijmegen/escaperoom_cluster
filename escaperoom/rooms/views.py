@@ -16,10 +16,11 @@ def clear_session(request):
 def room(request, room_number):
     access_session_key = f'access_granted_room_{room_number}'
     puzzle_session_key = f'puzzle_solved_room_{room_number}'
+    puzzle_session_answer = f'puzzle_answer_room_{room_number}'
     
     access_granted = request.session.get(access_session_key, False)
     puzzle_solved = request.session.get(puzzle_session_key, False)
-    puzzle_answer = None
+    puzzle_answer = request.session.get(puzzle_session_answer, False)
 
     access_form = AccessForm(prefix='access')
     puzzle_form = PuzzleForm(prefix='puzzle')
@@ -38,14 +39,15 @@ def room(request, room_number):
                 if check_puzzle_solution(f'room{room_number}', puzzle_form.cleaned_data['puzzle_answer']):
                     puzzle_solved = True
                     puzzle_answer = fetch_acces_code(f'room{room_number+1}')
-                    request.session[puzzle_session_key] = True  # Set session variable for puzzle
+                    request.session[puzzle_session_key] = True # Set session variable for puzzle
+                    request.session[puzzle_session_answer] = puzzle_answer
 
     context = {
         'access_form': access_form,
         'puzzle_form': puzzle_form,
         'allowed': access_granted,
         'success': puzzle_solved,
-        'succes_key': puzzle_answer,
+        'success_key': puzzle_answer,
         'room_number': room_number
     }
     return render(request, f'room{room_number}.html', context)

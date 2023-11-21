@@ -1,11 +1,45 @@
 {% extends 'room_base.html' %}
 
 {% block after_access %}
-    <p>Room 2 specific content after access.</p>
-    <!-- Add more Room 2 specific content here -->
+<h1>Assignment 2</h1>
+
+<div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">Great work on the first assignment! Now, let's move to the next challenge.</h4>
+    Your task is to kick off a interactive job using the Docker image you created in Assignment 1 and run a Jupyter notebook in VScode on the SOL2 cluster.
+    Damn, that's a lot of buzzwords. You got this!
+</div>
+
+<ul>
+    <li>Use the Docker image you pushed in Assignment 1.</li>
+    <li>Mount the directory where the training data is stored: <code>/data/pathology/users/clement/diag_day/data</code>.</li>
+    <li>Start the job with:
+        <ul>
+            <li>Using <code>sbatch</code> and attaching the running container to VSCode via SSH</li>
+        </ul>
+    </li>
+    <li>Run the <code>data.ipynb</code> notebook, which does some basic data analysis and outputs a label distribution plot.</li>
+    
+    <li><a href="{% url 'download_file' room_number=room_number file_name='data.ipynb' %}">Download data.ipynb</a></li>
+</ul>
+
+ <!-- Very Hidden Tips Toggle Button -->
+ <button id="tips-toggle" style="opacity: 1; position: absolute; bottom: 1%; right: 1%; border: none; background: none;">:'(</button>
+
+<!-- Hidden Tips Section -->
+<div id="tips-section" style="display:none;">
+    <h4>Tips</h4>
+    If you're having trouble with this assignment, check out this <a href='https://diagnijmegen.github.io/deepops-sol-config/running-jobs/'>page.</a><br>
+    Daan made a package called deepops-slurmjob that creates and launches interactive jobs for you!
+    Note: You will need an additional Python package that is not in the Docker image. You can simply use <code>pip install</code> to add it.</li>
+    <!-- Add more tips or links to documentation as needed -->
+</div>
+
+<h4>To acquire your puzzle piece</h4>
+<p>The assignment is passed once you successfully run the <code>data.ipynb</code> notebook and push the label distribution plot to your team Github repository. Create an issue, mention Clement (<code>clemsgrs</code>) and Daan (<code>daangeijs</code>), and include the SHA of your commit in the issue. They will review your repository and provide you with the next puzzle piece in your Issue.</p>
 {% endblock %}
 
 {% block after_puzzle %}
-    <p>Room 1 specific content after solving the puzzle.</p>
-    <!-- Add more Room 2 specific content here -->
+    <h4 class="alert-heading">KEY: {{ success_key }}</h4>
+    <p>Congratulations! You've successfully completed the second assignment. Your Docker container is operational and you used it in an interactive way, you've taken another step towards mastering SOL2.</p>
+    <p>Now let's use this nice environment to do some development! How about training a small model?</p>
 {% endblock %}

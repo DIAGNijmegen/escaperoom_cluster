@@ -1,11 +1,37 @@
 {% extends 'room_base.html' %}
 
+
 {% block after_access %}
-    <p>Room 3 specific content after access.</p>
-    <!-- Add more Room 3 specific content here -->
+<h1>Assignment 3</h1>
+
+<div class="alert alert-info" role="alert">
+    <h4 class="alert-heading">You're progressing well! Ready for the next challenge?</h4>
+    This task involves training a model using the environment you set up in Assignment 2.
+</div>
+
+<ul>
+    <li>Work within the same Docker container you started in Assignment 2.</li>
+    <li>Run the <code>train.ipynb</code> notebook, which trains a simple ResNet18 for 1 epoch on the development dataset.</li>
+    <li>The notebook will produce a <code>best.pt</code> file with the model weights, saved in the container's working directory.</li>
+    <li>Important: Copy the <code>best.pt</code> file outside the container to a safe location (e.g., your project folder on Blissey/Chansey). If you don't, the checkpoint will be lost when the job running your Docker container ends.</li>
+    <li><a href="{% url 'download_file' room_number=room_number file_name='train.ipynb' %}">Download train.ipynb</a></li>
+</ul>
+
+<!-- Very Hidden Tips Toggle Button -->
+<button id="tips-toggle" style="opacity: 0.5; position: absolute; left: 13%; bottom: 26%; border: none; background: none;">:'(</button>
+
+<!-- Hidden Tips Section -->
+<div id="tips-section" style="display:none;">
+    <h4>Tips</h4>
+    If you're facing difficulties, consult the dedicated <a href="https://diagnijmegen.github.io/deepops-sol-config/running-jobs/">documentation page</a>.<br>
+    <!-- Add more tips or links to documentation as needed -->
+</div>
+
+<h4>To acquire your puzzle piece</h4>
+<p>The assignment is completed once you push the model weights (<code>best.pt</code>) to your team's GitHub repository. Make sure to save the weights on the storage server as well. Create an issue, mention Clement (<code>clemsgrs</code>) and Daan (<code>daangeijs</code>), and include the SHA of your commit in the issue. They will check your repository and confirm the completion of the assignment in your Issue.</p>
 {% endblock %}
 
 {% block after_puzzle %}
-    <p>Room 3 specific content after solving the puzzle.</p>
-    <!-- Add more Room 3 specific content here -->
+    <h4 class="alert-heading">KEY: {{ success_key }}</h4>
+    <p>Impressive work! You've successfully trained the model and secured the weights. Prepare for the next stage of your journey with SOL2.</p>
 {% endblock %}

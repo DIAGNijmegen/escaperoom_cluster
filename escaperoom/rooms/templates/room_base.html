@@ -19,7 +19,6 @@
             </form>
         </div>
     {% else %}
-        <h1>Welcome to Room {{ room_number }}</h1>
         {% block after_access %}
             <!-- Default or generic content after access, if any -->
         {% endblock %}
@@ -33,12 +32,11 @@
         {% endif %}
         {% if success %}
             <div class="mt-4 alert alert-success">
-                <p>Congratulations! You have unlocked a new part of the page.</p>
-
+                {% block after_puzzle %}
+                    <!-- Success message here -->
+            {% endblock %}
             </div>
-            {% block after_puzzle %}
-            <!-- Default or generic content after puzzle solution, if any -->
-        {% endblock %}
+
         {% endif %}
     {% endif %}
 {% endblock %}

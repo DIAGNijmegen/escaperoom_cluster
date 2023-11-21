@@ -1,8 +1,6 @@
 {% extends 'room_base.html' %}
 
 {% block after_access %}
-
-
 <h1>Assignment 1</h1>
 
 <div class="alert alert-info" role="alert">
@@ -29,23 +27,20 @@
 Trouble building a Docker image? Check out the <a href="https://docs.docker.com/engine/reference/commandline/build/">Docker build documentation</a>.<br>
 Trouble pushing a Docker image? Check out the <a href="https://docs.docker.com/engine/reference/commandline/push/">Docker push documentation</a>.<br>
 Trouble installing Python packages? Check out the <a href="https://pip.pypa.io/en/stable/cli/pip_install/">pip install documentation</a>.<br>
-Is it not working on your local machine? Try to build and push the Docker image on the SOL2 cluster using dlc-duglet<br>
+Is it not working on your local machine? Try to build and push the Docker image on the SOL2 cluster using dlc-ducklett<br>
 
 </div>
 
 
 
-<h2>To acquire your puzzle piece</h2>
+<h4>To acquire your puzzle piece</h4>
 <p>The assignment is passed once you push the updated Dockerfile to your team Github repository. Create an issue, mention Clement (<code>clemsgrs</code>) and Daan (<code>daangeijs</code>), and the <a href="https://stackoverflow.com/questions/8910271/how-can-i-reference-a-commit-in-an-issue-comment-on-github">SHA</a> of your commit in the issue. They check your repository and give you the puzzle piece by putting it in your Issue.</p>
 {% endblock %}
 
 {% block after_puzzle %}
-
-    <div class="alert alert-info" role="alert">
-    KEY: {{ succes_key }}
-    </div>
-
-     
+<h4 class="alert-heading">  KEY: {{ success_key }}   </h4>
+    <p>You nailed it! Your Docker is now in the registry and ready to be used. Lets start it in an interactive way!</p>
+    
 {% endblock %}
 
 
