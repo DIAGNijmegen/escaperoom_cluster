@@ -4,7 +4,7 @@ Each participant will have to kick off a job with:
 * the docker image they pushed at assignment 1
 * mount the directory where the training data is stored : `/data/pathology/users/clement/diag_day/data`
 
-They should start the job with either:
+They can take a look at the [dedicted documentation page](https://diagnijmegen.github.io/deepops-sol-config/running-jobs/) if they don't know where to start. They can start the job with either:
 * a combination of `screen` and `srun`
 * using `sbatch` and attaching the running container to VSCode
 

@@ -34,4 +34,3 @@ done
 
 # run inference
 /usr/local/bin/python3 inference.py -w "${weights}"
-cp submission.csv /data/pathology/projects/ais-cap/code/diag_day/submission_entrypoint.csv
